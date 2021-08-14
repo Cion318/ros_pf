@@ -23,7 +23,6 @@
     <param name="angle_compensate"    type="bool"   value="true"/>
   </node>
 
-
   <!-- Starting the Laserscanmatcher node to provide "fake" odometrie with 
        laserscan data and setting up parameters. -->
   <node pkg="laser_scan_matcher" type="laser_scan_matcher_node" 
@@ -40,7 +39,8 @@
 
   <!-- Starting the map_server node to load a previously created map. -->
   <arg name="map_file" default="$(find ros_pf)/maps/W1.yaml"/>
-  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+  <node name="map_server" pkg="map_server" type="map_server"
+        args="$(arg map_file)" />
 
   <!-- Arguments -->
   <arg name="scan_topic"     default="scan"/>
