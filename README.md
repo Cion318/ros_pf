@@ -6,8 +6,8 @@ This package heavily relies on several packages to be installed and works on ROS
 To install ROS Noetic one can follow the guide on the following official ROS [page](http://wiki.ros.org/noetic/Installation/Ubuntu).
 
 After successfully installing ROS Noetic these packages have to be installed:
-```$ sudo apt install ros-noetic-map-server```
-```$ sudo apt install ros-noetic-gmapping```
-```$ sudo apt install ros-noetic-amcl```
-```$ sudo apt install ros-laser-scan-matcher```
+```$ sudo apt install ros-noetic-map-server```  
+```$ sudo apt install ros-noetic-gmapping```  
+```$ sudo apt install ros-noetic-amcl```  
+```$ sudo apt install ros-laser-scan-matcher```  
 
