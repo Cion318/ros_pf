@@ -5,7 +5,7 @@
   <node pkg="tf" type="static_transform_publisher" name="base_to_laser" args="0 0 0 0 0 0 base_link laser_link 100" />
 
   <!--node pkg="rviz" type="rviz" name="rviz" /-->  
-  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find particlefilter)/cfgs/pf_loc_cfg.rviz" />
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find ros_pf)/cfgs/pf_loc_cfg.rviz" />
 
   <!-- RPLidar starting and setup    -->
   <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
@@ -28,7 +28,7 @@
   </node>
 
   <!-- Map Server Arguments -->
-  <arg name="map_file" default="$(find particlefilter)/maps/map_g.yaml"/>
+  <arg name="map_file" default="$(find ros_pf)/maps/map_g.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
   <!-- Arguments -->
