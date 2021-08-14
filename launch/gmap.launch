@@ -3,7 +3,7 @@
   <!-- Setting to false beacause of real world application with lidar. -->
   <param name="/use_sim_time" value="false"/>
 
-  <!-- Coordinate transformation with base and laser being identical. -->
+  <!-- Setup the static transform between robot base and laser. -->
   <node pkg="tf" type="static_transform_publisher" name="base_to_laser"
         args="0 0 0 0 0 0 base_link laser_link 100"/>
 
@@ -24,7 +24,8 @@
     <param name="angle_compensate"    type="bool"   value="true"/>
   </node>
 
-  <!-- Starting the Laserscanmatcher node and setting up parameters. -->
+  <!-- Starting the Laserscanmatcher node to provide "fake" odometrie with 
+       laserscan data and setting up parameters. -->
   <node pkg="laser_scan_matcher" type="laser_scan_matcher_node" 
         name="laser_scan_matcher_node" output="screen">
     <!-- Setting the fixed frame to being odom instead of world. -->
