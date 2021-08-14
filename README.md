@@ -30,9 +30,9 @@ Then add the write authority to the USB device (in my case ttyUSB0):
 
 ## Setup of Hector_Slam (only if used instead of gmapping):
 Inside of ```<workspace>/src/hector_slam/hector_mapping/launch/mapping_default.launch``` change:  
-Line  5 to ```<arg name="base_frame" default="base_link"/>```  
-Line  6 to ```<arg name="odom_frame" default="base_link"/>```  
-Line 54 to ```<node pkg="tf" type="static_transform_publisher" name="base_to_laser" args="0 0 0 0 0 0 base_link laser_link 100"/>```  
+* Line  5 to ```<arg name="base_frame" default="base_link"/>```  
+* Line  6 to ```<arg name="odom_frame" default="base_link"/>```  
+* Line 54 to ```<node pkg="tf" type="static_transform_publisher" name="base_to_laser" args="0 0 0 0 0 0 base_link laser_link 100"/>```  
 
 Inside of ```<workspace>/src/hector_slam/hector_slam_launch/launch/tutorial.launch``` change:  
-Line  7 to ```<param name="/use_sim_time" value="false"/>```  
+* Line  7 to ```<param name="/use_sim_time" value="false"/>```  
