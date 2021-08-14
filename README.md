@@ -14,8 +14,13 @@ After successfully installing ROS Noetic these packages have to be installed:
 To use the RPLidar the following package must be cloned into the src directory of the workspace:  
 ```$ git clone https://github.com/robopeak/rplidar_ros```
 
-Is an alternative to the previously installed gmapping package one can also use the hector_slam package from TU Darmstadt:  
+Then proceed to clone this package:  
+```$ git clone https://github.com/Cion318/ros_pf```
+
+As an alternative to the previously installed gmapping package one can also use the hector_slam package from TU Darmstadt:  
 ```$ git clone https://github.com/tu-darmstadt-ros-pkg/hector_slam```
+
+After all packages have been installed/cloned build them with using ```catkin_make``` from the root of your workspace.
 
 ## Setup of RPLidar
 Check the serial port with:  
