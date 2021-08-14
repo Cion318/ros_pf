@@ -1,15 +1,20 @@
 <launch>
 
-  <!-- RPLidar starting and setup    -->
-  <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
+  <!-- Starting the RPLidar node and setting up parameters. -->
+  <node name="rplidarNode" pkg="rplidar_ros" type="rplidarNode" output="screen">
+    <!-- Default serial port of the RPLidar when connected. -->
     <param name="serial_port"         type="string" value="/dev/ttyUSB0"/>
-    <param name="serial_baudrate"     type="int"    value="115200"/><!--A1/A2 -->
-    <!--param name="serial_baudrate"     type="int"    value="256000"--><!--A3 -->
+    <!-- Baudrate: 115200 for RPLidar A1/A2 and 256000 for RPLidar A3. -->
+    <param name="serial_baudrate"     type="int"    value="115200"/>
+    <!-- Setting the frame of the lidar to laser_link. -->
     <param name="frame_id"            type="string" value="laser_link"/>
     <param name="inverted"            type="bool"   value="false"/>
     <param name="angle_compensate"    type="bool"   value="true"/>
   </node>
 
+  <!-- Mapping with hector_slam. Package has to be inside the src directory.
+       Settings inside hector_slam package have to be changed according to
+       Readme.md file. -->
   <include file="$(find hector_slam_launch)/launch/tutorial.launch"/>
 
 </launch>
