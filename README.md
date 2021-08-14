@@ -1,7 +1,7 @@
 # ros_pf
 This package is used to applicate the particlefilter in combination with a RPLidar A2 for mobile robot localization in ROS.
 
-## Install & Setup
+## Installation & Packages
 This package heavily relies on several packages to be installed and works on ROS Noetic.  
 To install ROS Noetic one can follow the guide on the following official ROS [page](http://wiki.ros.org/noetic/Installation/Ubuntu).
 
@@ -16,6 +16,12 @@ To use the RPLidar the following package must be cloned into the src directory o
 
 Is an alternative to the previously installed gmapping package one can also use the hector_slam package from TU Darmstadt:  
 ```$ git clone https://github.com/tu-darmstadt-ros-pkg/hector_slam```
+
+## Setup of RPLidar
+Check the serial port with:  
+```$ ls -l /dev |grep ttyUSB```  
+Then add the write authority to the USB device (in my case ttyUSB0):  
+```$ sudo chmod 666 /dev/ttyUSB0```
 
 
 
