@@ -20,7 +20,7 @@ Then proceed to clone this package:
 As an alternative to the previously installed gmapping package one can also use the hector_slam package from TU Darmstadt:  
 ```$ git clone https://github.com/tu-darmstadt-ros-pkg/hector_slam```
 
-After all packages have been installed/cloned build them with using ```catkin_make``` from the root of your workspace.
+After all packages have been installed/cloned build them using ```catkin_make``` from the root of your workspace.
 
 ## Setup of RPLidar
 Check the serial port with:  
