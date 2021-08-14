@@ -42,3 +42,10 @@ Inside of ```<workspace>/src/hector_slam/hector_mapping/launch/mapping_default.l
 
 Inside of ```<workspace>/src/hector_slam/hector_slam_launch/launch/tutorial.launch``` change:  
 * Line  7 to ```<param name="/use_sim_time" value="false"/>```  
+
+## Creating and Saving Maps
+Like mentioned before one can use gmapping or hector_slam to map out the environment. To use either of them run one of these commands:
+* ```$ roslaunch ros_pf gmap.launch```
+* ```$ roslaunch ros_pf hmap.launch```
+To save the generated map cd into the directory you want the map to be saved in and run the following command from a new terminal:
+* ```$ rosrun map_server map_saver -f <map_name>```
