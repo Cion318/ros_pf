@@ -1,5 +1,5 @@
 # ros_pf
-This package is used to applicate the particlefilter in combination with a RPLidar A2 for mobile robot localization in ROS.
+This package is used to applicate the particlefilter in combination with a RPLidar A2 for mobile (robot) localization in ROS.
 
 ## Installation & Packages
 This package heavily relies on several packages to be installed and works on ROS Noetic.  
