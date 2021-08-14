@@ -3,8 +3,8 @@ This package is primarily used to apply the particlefilter in combination with a
 To make it as simple as possible there are multiple launch files to:
 * map the environment using gmapping
 * map the environment using hector_slam
+* do a live localization when moving the lidar around
 * record the movement of the lidar with bagfiles to adjust parameters
-* do a live localization whe moving the lidar around
 
 
 ## Installation & Packages
@@ -47,5 +47,8 @@ Inside of ```<workspace>/src/hector_slam/hector_slam_launch/launch/tutorial.laun
 Like mentioned before one can use gmapping or hector_slam to map out the environment. To use either of them run one of these commands:
 * ```$ roslaunch ros_pf gmap.launch```  
 * ```$ roslaunch ros_pf hmap.launch```  
-To save the generated map cd into the directory you want the map to be saved in and run the following command from a new terminal:
+
+To save the generated map ```cd``` into the directory you want the map to be saved in and run the following command from a new terminal:
 * ```$ rosrun map_server map_saver -f <map_name>```
+
+## 
