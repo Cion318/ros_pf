@@ -3,7 +3,7 @@ This package is used to applicate the particlefilter in combination with a RPLid
 
 ## Installation & Packages
 This package heavily relies on several packages to be installed and works on ROS Noetic.  
-To install ROS Noetic one can follow the guide on the following official ROS [page](http://wiki.ros.org/noetic/Installation/Ubuntu).
+To install ROS Noetic one can follow the guide on the [official ROS page](http://wiki.ros.org/noetic/Installation/Ubuntu).
 
 After successfully installing ROS Noetic these packages have to be installed:  
 ```$ sudo apt install ros-noetic-map-server```  
