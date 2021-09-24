@@ -42,7 +42,47 @@
   <node name="map_server" pkg="map_server" type="map_server"
         args="$(arg map_file)" />
 
-  <node pkg="rosbag" type="record" name="rosbag_record_standard_data"
-        respawn="true" output="screen" args="-o $(find ros_pf)/bags"/>
+  <!-- Arguments -->
+  <arg name="scan_topic"     default="scan"/>
+
+
+  <!-- AMCL -->
+  <node pkg="amcl" type="amcl" name="amcl">
+    <!-- Detailed parameter information at https://wiki.ros.org/amcl -->
+    <!-- Overall filter parameters -->
+    <param name="min_particles"           value="100"/>
+    <param name="max_particles"           value="3000"/>
+    <param name="update_min_d"            value="0.2"/>
+    <param name="update_min_a"            value="0.5"/>
+    <param name="resample_interval"       value="2"/>
+    <param name="recovery_alpha_slow"     value="0.0"/> <!-- 0.0 = disabled-->
+    <param name="recovery_alpha_fast"     value="0.0"/> <!-- 0.0 = disabled-->
+    <param name="initial_pose_x"          value="0"/>
+    <param name="initial_pose_y"          value="0.0"/>
+    <param name="initial_pose_z"          value="0.0"/>
+    <param name="selective_resampling"    value="false"/>
+
+    <!-- Laser model parameters -->
+    <param name="laser_min_range"         value="-1.0"/> <!--Laser's min/max-->
+    <param name="laser_max_range"         value="-1.0"/> <!--reported range -->
+    <param name="laser_max_beams"         value="30"/>
+    <param name="laser_z_hit"             value="0.95"/>
+    <param name="laser_z_short"           value="0.1"/>
+    <param name="laser_z_max"             value="0.05"/>
+    <param name="laser_z_rand"            value="0.05"/>
+    <param name="laser_model_type"        value="likelihood_field"/>
+
+    <!-- Odometry model parameters -->
+    <param name="odom_model_type"           value="diff-corrected"/>
+    <param name="odom_alpha1"               value="0.05"/>
+    <param name="odom_alpha2"               value="0.05"/>
+    <param name="odom_alpha3"               value="0.1"/>
+    <param name="odom_alpha4"               value="0.05"/>
+    <param name="odom_alpha5"               value="0.2"/>
+
+    <param name="odom_frame_id"             value="odom"/>
+    <param name="base_frame_id"             value="base_link"/>
+    <param name="global_frame_id"           value="map"/>
+  </node>
 
 </launch>
