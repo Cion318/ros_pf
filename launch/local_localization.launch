@@ -1,3 +1,18 @@
+<!--
+This launch file starts a local localization using the particlefilter algorithm
+The following requirements need to be met to use this launch file:
+- RPLidar with rplidar_ros package (file needs adjustments for other lidar)
+- needs map_server, gmapping, laser_scan_matcher, amcl packages
+     
+This launch file was designed with a sole lidar in mind without any robot moving
+around. To use this with an robot the static_transform between laser and the
+robot_base needs to be adjusted and laser_scan_matcher can be replaced with the 
+robot odometry data.
+
+It is highly advised to adjust the amcl parameters, since there is no optimal
+parameter choice to fit every problem.
+-->
+
 <launch>
   <!-- Set simulation time to false since we are doing a live localization. -->
   <param name="/use_sim_time" value="false"/>
@@ -41,10 +56,6 @@
   <arg name="map_file" default="$(find ros_pf)/maps/W1.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server"
         args="$(arg map_file)" />
-
-  <!-- Arguments -->
-  <arg name="scan_topic"     default="scan"/>
-
 
   <!-- AMCL -->
   <node pkg="amcl" type="amcl" name="amcl">
