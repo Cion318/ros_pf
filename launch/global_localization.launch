@@ -38,14 +38,10 @@
   </node>
 
   <!-- Starting the map_server node to load a previously created map. -->
-  <arg name="map_file" default="$(find ros_pf)/maps/W1.yaml"/>
+  <arg name="map_file" default="$(find ros_pf)/maps/hW1_h_t.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server"
         args="$(arg map_file)" />
-
-  <!-- Arguments -->
-  <arg name="scan_topic"     default="scan"/>
-
-
+  
   <!-- AMCL -->
   <node pkg="amcl" type="amcl" name="amcl">
     <!-- Detailed parameter information at https://wiki.ros.org/amcl -->
@@ -73,7 +69,7 @@
     <param name="laser_model_type"        value="likelihood_field"/>
 
     <!-- Odometry model parameters -->
-    <param name="odom_model_type"           value="diff-corrected"/>
+    <param name="odom_model_type"           value="omni-corrected"/>
     <param name="odom_alpha1"               value="0.05"/>
     <param name="odom_alpha2"               value="0.05"/>
     <param name="odom_alpha3"               value="0.1"/>
@@ -88,5 +84,8 @@
   <!-- Call amcl service to start with global instead of local localization. -->
   <node pkg="rosservice" type="rosservice" name="global_loc" 
         args="call --wait /global_localization" />
-
+  <!--
+  <node pkg="rosbag" type="record" name="rosbag_record_loc"
+        args="record -a $(find ros_pf)/bags/" />
+  -->
 </launch>
