@@ -3,7 +3,7 @@ This package is primarily used to apply the particlefilter in combination with a
 To make it as simple as possible there are multiple launch files to:
 * map the environment using gmapping
 * map the environment using hector_slam
-* do a live localization when moving the lidar around(local and global)
+* do a live localization when moving the lidar around (local and global)
 * playing back recorded bagfiles created with the localization launch files
 
 
