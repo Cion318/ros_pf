@@ -5,7 +5,7 @@ The following requirements need to be met to use this launch file:
 - needs map_server, gmapping, laser_scan_matcher, amcl packages
      
 This launch file was designed with a sole lidar in mind without any robot moving
-around. To use this with an robot the static_transform between laser and the
+around. To use this with a robot the static_transform between laser and the
 robot_base needs to be adjusted and laser_scan_matcher can be replaced with the 
 robot odometry data.
 
@@ -53,7 +53,7 @@ parameter choice to fit every problem.
   </node>
 
   <!-- Starting the map_server node to load a previously created map. -->
-  <arg name="map_file" default="$(find ros_pf)/maps/W1.yaml"/>
+  <arg name="map_file" default="$(find ros_pf)/maps/M1GH.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server"
         args="$(arg map_file)" />
 
@@ -66,9 +66,9 @@ parameter choice to fit every problem.
     <param name="update_min_d"            value="0.2"/>
     <param name="update_min_a"            value="0.5"/>
     <param name="resample_interval"       value="2"/>
-    <param name="recovery_alpha_slow"     value="0.0"/> <!-- 0.0 = disabled-->
-    <param name="recovery_alpha_fast"     value="0.0"/> <!-- 0.0 = disabled-->
-    <param name="initial_pose_x"          value="0"/>
+    <param name="recovery_alpha_slow"     value="0.0001"/>
+    <param name="recovery_alpha_fast"     value="0.1"/>
+    <param name="initial_pose_x"          value="0.0"/>
     <param name="initial_pose_y"          value="0.0"/>
     <param name="initial_pose_z"          value="0.0"/>
     <param name="selective_resampling"    value="false"/>
@@ -85,11 +85,11 @@ parameter choice to fit every problem.
 
     <!-- Odometry model parameters -->
     <param name="odom_model_type"           value="diff-corrected"/>
-    <param name="odom_alpha1"               value="0.05"/>
-    <param name="odom_alpha2"               value="0.05"/>
-    <param name="odom_alpha3"               value="0.1"/>
-    <param name="odom_alpha4"               value="0.05"/>
-    <param name="odom_alpha5"               value="0.2"/>
+    <param name="odom_alpha1"               value="0.005"/>
+    <param name="odom_alpha2"               value="0.050"/>
+    <param name="odom_alpha3"               value="0.010"/>
+    <param name="odom_alpha4"               value="0.005"/>
+    <param name="odom_alpha5"               value="0.003"/>
 
     <param name="odom_frame_id"             value="odom"/>
     <param name="base_frame_id"             value="base_link"/>
