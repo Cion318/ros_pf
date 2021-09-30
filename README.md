@@ -1,10 +1,10 @@
-# ros_pf
+# Particlefilter application using amcl in ROS
 This package is primarily used to apply the particlefilter in combination with a lidar (RPLidar in this case) for mobile (robot) localization in ROS.  
 To make it as simple as possible there are multiple launch files to:
 * map the environment using gmapping
 * map the environment using hector_slam
 * do a live localization when moving the lidar around
-* record the movement of the lidar with bagfiles to adjust parameters
+* playing back recorded bagfiles created with the localization launch files
 
 
 ## Installation & Packages
