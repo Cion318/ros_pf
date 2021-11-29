@@ -51,4 +51,14 @@ Like mentioned before one can use gmapping or hector_slam to map out the environ
 To save the generated map ```cd``` into the directory you want the map to be saved in and run the following command from a new terminal:
 * ```$ rosrun map_server map_saver -f <map_name>```
 
-## 
+## Starting a Localization
+To start a localization the launch files need to be adjusted to use the previously created map. For an easier setup I recommend putting the created map inside the designated folder inside this package in ```ros_pf/maps```.
+Inside of ```<workspace>/src/ros_pf/launch/local_localization.launch``` change:
+* Line 41 ```"$(find ros_pf)/maps/M1GH.yaml"``` to ```"$(find ros_pf)/maps/<YOUR_MAP_NAME>.yaml"```
+
+Inside of ```<workspace>/src/ros_pf/launch/global_localization.launch``` change:
+* Line 41 ```"$(find ros_pf)/maps/M1GH.yaml"``` to ```"$(find ros_pf)/maps/<YOUR_MAP_NAME>.yaml"```
+
+Once the files have been edited a localization can be started with the following commands:
+* ```roslaunch ros_pf local_localization.launch``` to start with locally distributed particles
+* ```roslaunch ros_pf global_localization.launch``` to start with globally distributed particles
