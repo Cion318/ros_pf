@@ -53,6 +53,7 @@ To save the generated map ```cd``` into the directory you want the map to be sav
 
 ## Starting a Localization
 To start a localization the launch files need to be adjusted to use the previously created map. For an easier setup I recommend putting the created map inside the designated folder inside this package in ```ros_pf/maps```.
+
 Inside of ```<workspace>/src/ros_pf/launch/local_localization.launch``` change:
 * Line 41 ```"$(find ros_pf)/maps/M1GH.yaml"``` to ```"$(find ros_pf)/maps/<YOUR_MAP_NAME>.yaml"```
 
@@ -62,3 +63,15 @@ Inside of ```<workspace>/src/ros_pf/launch/global_localization.launch``` change:
 Once the files have been edited a localization can be started with the following commands:
 * ```roslaunch ros_pf local_localization.launch``` to start with locally distributed particles
 * ```roslaunch ros_pf global_localization.launch``` to start with globally distributed particles
+
+## Record and Replay Localization Data
+To record the localization in real-time for post review or editing ```rosbag``` can be used. For that a new terminal needs to be open next to the one running the localization. 
+* ```cd ros_pf/bags``` or ```cd``` into any other folder where you want to save the data
+* ```rosbag record -a``` to start recording all data thats being published
+* ```CTRL+C``` to end the data recording
+
+To replay the recorded data open a new terminal and use the following commands:
+* ```roslaunch bags_replay.launch``` to open a preconfigurated Rviz (for this package)
+Open another terminal and use the following commands:
+* ```cd ros_pf/bags``` or ```cd``` into any other folder the data has been saved to
+* ```rosbag play <YOUR_ROSBAG_FILE_NAME>```
