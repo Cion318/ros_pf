@@ -1,5 +1,4 @@
 <launch>
-
   <!-- Starting the RPLidar node and setting up parameters. -->
   <node name="rplidarNode" pkg="rplidar_ros" type="rplidarNode" output="screen">
     <!-- Default serial port of the RPLidar when connected. -->

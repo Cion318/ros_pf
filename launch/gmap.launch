@@ -1,5 +1,4 @@
 <launch>
-
   <!-- Setting to false beacause of real world application with lidar. -->
   <param name="/use_sim_time" value="false"/>
 
